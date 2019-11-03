@@ -45,6 +45,9 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 set mouse=a
 
+" Allow mouse for split resize in vim on tmux
+"set ttymouse=xterm2
+
 " Set page display
 
 set list
@@ -64,3 +67,6 @@ set updatetime=100
 
 " Automatically update vim
 autocmd BufWritePost .vimrc source %
+
+" Let FZF display hidden files
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
