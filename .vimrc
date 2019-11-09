@@ -224,4 +224,7 @@ if has("cscope")
 		"
 		"set ttimeoutlen=100
 
+
+" TOTALLY NECESSARY MAPPING
+map <F2> :r ~/Divers/coffee.txt <ESC> 25j zz <CR>
 endif
