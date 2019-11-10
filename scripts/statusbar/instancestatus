@@ -1,0 +1,14 @@
+#!/bin/sh
+
+status() {
+#echo "Volume:"
+volume="$(pamixer --get-volume)"
+date_hr=$(echo "$(date +"%a %d %b %Y %H:%M")" | cut -d ':' -f1,2)
+bt="$(acpi -v)"
+battery=$(acpi -V | head -1 | cut -d ':' -f2,3)
+connec=$(nmcli connection show --active | cut -d ' ' -f1 | sed -n -e 2p)
+echo "[Connec: $connec] [Bat:$battery Remaining] [Vol: $volume%] [$date_hr]"
+#echo " | "
+}
+
+xsetroot -name "$(status)"

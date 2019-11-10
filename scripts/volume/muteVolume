@@ -1,0 +1,5 @@
+#!/bin/sh
+
+paximer -t
+sh ~/Utils/scripts/statusbar/instancestatus
+

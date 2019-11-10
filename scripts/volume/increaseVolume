@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pamixer -i 5
+sh ~/Utils/scripts/statusbar/instancestatus
