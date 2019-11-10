@@ -10,6 +10,8 @@ Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 " Status bar Custom
 Plug 'itchyny/lightline.vim'
+" Vim fugitive for git
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -35,7 +37,9 @@ set splitbelow splitright
 
 silent !stty -ixon > /dev/null 2>/dev/null
 
-" Remaps
+
+
+"								REMAPS											
 
 nmap <C-Q> :q<CR>
 imap <C-Q> <Esc>:q<CR>
@@ -58,6 +62,17 @@ map <C-n> :Vex<CR>
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" FZF remaps
+nnoremap <C-e> :Files<CR>
+nnoremap <C-g> :Ag<CR>
+nnoremap <C-b> :Buffers<CR>
+
+																				
+
+" Remove trailing whitespaces
+autocmd FileType c,h autocmd BufWritePre <buffer> %s/\s\+$//e
+
+" Handle mouse and split resizing
 set mouse=a
 set ttymouse=xterm2
 
@@ -67,6 +82,7 @@ set list
 set listchars=tab:>·,trail:·,extends:>,precedes:<
 set cc=80
 set tabstop=4
+set shiftwidth=4
 set showcmd
 " Keep cursor in the middle of page
 "set scrolloff=999
@@ -81,14 +97,11 @@ highlight Normal ctermbg=black
 set laststatus=2
 set updatetime=100
 
-" Automatically update vim
-autocmd BufWritePost .vimrc source %
-
 " Fix indentation
 set cinoptions+=+1
 
-" Remove trailing whitspaces
-autocmd FileType c,h autocmd BufWritePre <buffer> %s/\s\+$//e
+" Setup AG for fzf
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " CSCOPE SETUP
 
@@ -224,7 +237,7 @@ if has("cscope")
 		"
 		"set ttimeoutlen=100
 
-
 " TOTALLY NECESSARY MAPPING
 map <F2> :r ~/Divers/coffee.txt <ESC> 25j zz <CR>
+
 endif
