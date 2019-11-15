@@ -13,6 +13,8 @@ Plug 'itchyny/lightline.vim'
 " Vim fugitive for git
 Plug 'tpope/vim-fugitive'
 
+Plug 'chrisbra/unicode.vim'
+
 call plug#end()
 
 " Set colors
@@ -55,7 +57,10 @@ map <C-l> <C-w>l
 
 " Open Netrw on v-split pane
 
-map <C-n> :Vex<CR>
+map <C-n> :Lexplore<CR>
+let g:netrw_liststyle= 3
+let g:netrw_winsize = -28
+let g:netrw_browse_split = 4
 
 " Set highlight for search and disable it with space
 
@@ -77,9 +82,9 @@ set mouse=a
 set ttymouse=xterm2
 
 " Set page display
-
+set encoding=utf-8
 set list
-set listchars=tab:>·,trail:·,extends:>,precedes:<
+set listchars=tab:>�,trail:·,extends:>,precedes:<
 set cc=80
 set tabstop=4
 set shiftwidth=4
@@ -112,7 +117,7 @@ if has("cscope")
 		" add any cscope database in current directory
 		set nocscopeverbose
 		if filereadable("cscope.out")
-			cs add /home/halias/Documents/101_Code/42sh_gitlab/cscope.out
+			cs add /home/halias/Documents/Code101/42sh_gitlab/cscope.out
 				" else add the database pointed to by environment variable
 		elseif $CSCOPE_DB != ""
 				cs add $CSCOPE_DB
@@ -238,6 +243,6 @@ if has("cscope")
 		"set ttimeoutlen=100
 
 " TOTALLY NECESSARY MAPPING
-map <F2> :r ~/Divers/coffee.txt <ESC> 25j zz <CR>
+map <F2> :r ~/Documents/Divers/coffee.txt <ESC> 25j zz <CR>
 
 endif
