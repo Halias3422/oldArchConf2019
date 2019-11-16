@@ -47,6 +47,8 @@ nmap <C-Q> :q<CR>
 imap <C-Q> <Esc>:q<CR>
 nmap <C-S> :w<CR>
 imap <C-s> <Esc>:w<CR>
+nmap <S-J> 10j<CR>
+nmap <S-K> 10k<CR>
 
 " Shortcuts for splits navigation
 
