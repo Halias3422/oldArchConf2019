@@ -26,8 +26,8 @@ let g:molokai_original = 1
 " Set numbers
 
 set number relativenumber
-"autocmd InsertEnter * :set relativenumber
-"autocmd InsertLeave * :set norelativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
 
 " Disables automatic commenting on newline
 
